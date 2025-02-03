@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: "#2563eb", // Primary color
+            accent: "#059669", // Secondary color
+          },
+          fontFamily: {
+            'sans': ['Inter', 'sans-serif'], // Replace with your font
+          }
+        }
+      }
+    }
+  </script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jihad Vercher | Web & App Developer</title>
+  <!-- Include Tailwind CSS via CDN (or use npm for production) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-['Inter']">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo/Brand -->
+        <h1 class="text-2xl font-bold text-blue-600">@CodeWithJi</h1>
+        <!-- Menu -->
+        <div class="flex space-x-4">
+          <a href="#portfolio" class="text-gray-600 hover:text-blue-600">Portfolio</a>
+          <a href="#services" class="text-gray-600 hover:text-blue-600">Services</a>
+          <a href="#contact" class="text-gray-600 hover:text-blue-600">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-5xl font-bold text-gray-800 mb-6">
+        I Build Apps & Websites That <span class="text-blue-600">Convert</span>
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Freelance developer helping entrepreneurs fix broken tech and scale revenue.
+      </p>
+      <button class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
+        Get a Free Audit
+      </button>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-16 bg-white px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Projects</h2>
+    
+    <!-- Project Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Project Card 1 -->
+      <div class="portfolio-card group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out">
+        <!-- Front Card -->
+        <div class="card-front cursor-pointer p-6">
+          <img 
+            src="project1-thumb.jpg" 
+            alt="E-Commerce App Preview" 
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          >
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">E-Commerce App</h3>
+          <p class="text-gray-600 line-clamp-2">Modernized checkout flow increased conversion rates by 40% for a retail client.</p>
+          <button 
+            class="expand-button mt-4 text-blue-600 font-medium"
+            aria-expanded="true"
+            aria-label="Expand project details"
+          >
+            See Details ↓
+          </button>
+        </div>
+
+        <!-- Expanded Back Card (Hidden by Default) -->
+        <div class="card-back absolute top-0 left-0 w-full h-full bg-white rounded-xl p-6 overflow-y-auto invisible opacity-0 transition-all duration-300">
+          <!-- Close Button -->
+          <button 
+            class="close-button absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            aria-label="Close project details"
+          >
+            ×
+          </button>
+          
+          <!-- Project Details -->
+          <div class="space-y-6">
+            <!-- Image Carousel -->
+            <div class="carousel flex snap-x snap-mandatory overflow-x-auto gap-4 pb-4">
+              <img src="project1-1.jpg" alt="Homepage" class="w-full h-64 object-cover snap-start">
+              <img src="project1-2.jpg" alt="Checkout" class="w-full h-64 object-cover snap-start">
+            </div>
+            
+            <!-- Tech Stack -->
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">React</span>
+              <span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-sm">Node.js</span>
+            </div>
+
+            <!-- Description -->
+            <p class="text-gray-600">
+              Revamped legacy codebase to implement a React-powered checkout flow with Stripe integration,
+              reducing cart abandonment by 30%. Added real-time inventory tracking and optimized mobile UX.
+            </p>
+
+            <!-- Links -->
+            <div class="flex gap-4">
+              <a 
+                href="https://live-demo.com" 
+                target="_blank" 
+                rel="noopener"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+              >
+                Live Demo
+              </a>
+              <a 
+                href="https://github.com/project1" 
+                target="_blank" 
+                rel="noopener"
+                class="border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more project cards here -->
+    </div>
+  </div>
+</section>
+
+  <!-- Services Section -->
+
+  <section id="services" class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Services</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            💻
+          </div>
+          <h3 class="text-xl font-semibold mb-2">App Development</h3>
+          <p class="text-gray-600">Scalable mobile/web apps built with modern stacks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+
+  <section id="contact" class="py-16 bg-white">
+    <div class="max-w-xl mx-auto px-4">
+      <form class="space-y-6">
+        <div>
+          <label class="block text-gray-700 mb-2">Name</label>
+          <input type="text" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-gray-700 mb-2">Email</label>
+          <input type="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  
+</body>
+</html>
