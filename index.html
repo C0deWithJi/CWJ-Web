@@ -1,20 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: "#2563eb", // Primary color
-            accent: "#059669", // Secondary color
-          },
-          fontFamily: {
-            'sans': ['Inter', 'sans-serif'], // Replace with your font
-          }
-        }
-      }
-    }
-  </script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +14,7 @@
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex justify-between items-center py-4">
         <!-- Logo/Brand -->
-        <h1 class="text-2xl font-bold text-blue-600">@CodeWithJi</h1>
+        <h1 class="text-2xl font-bold text-blue-600">CodewithJi</h1>
         <!-- Menu -->
         <div class="flex space-x-4">
           <a href="#portfolio" class="text-gray-600 hover:text-blue-600">Portfolio</a>
@@ -44,7 +29,7 @@
   <section class="py-20 text-center">
     <div class="max-w-4xl mx-auto px-4">
       <h1 class="text-5xl font-bold text-gray-800 mb-6">
-        I Build Apps & Websites That <span class="text-blue-600">Convert</span>
+        I Build Apps & Websites That <span class="text-blue-600">WIN</span>
       </h1>
       <p class="text-xl text-gray-600 mb-8">
         Freelance developer helping entrepreneurs fix broken tech and scale revenue.
@@ -55,7 +40,6 @@
     </div>
   </section>
 
-  <!-- Portfolio Section -->
 <!-- Portfolio Section -->
 <section id="portfolio" class="py-16 bg-white px-4">
   <div class="max-w-6xl mx-auto">
@@ -65,31 +49,26 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       
       <!-- Project Card 1 -->
-      <div class="portfolio-card group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out">
+      <div class="portfolio-card group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out overflow-hidden">
         <!-- Front Card -->
-        <div class="card-front cursor-pointer p-6">
+        <div class="card-front p-6 cursor-pointer">
           <img 
-            src="project1-thumb.jpg" 
+            src="" 
             alt="E-Commerce App Preview" 
             class="w-full h-48 object-cover rounded-lg mb-4"
           >
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">E-Commerce App</h3>
-          <p class="text-gray-600 line-clamp-2">Modernized checkout flow increased conversion rates by 40% for a retail client.</p>
-          <button 
-            class="expand-button mt-4 text-blue-600 font-medium"
-            aria-expanded="true"
-            aria-label="Expand project details"
-          >
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Salon Appointment Scheduler App</h3>
+          <p class="text-gray-600 line-clamp-2">Modernized checkout flow increased conversion rates by 40% for a local wig making company.</p>
+          <button class="expand-button mt-4 text-blue-600 font-medium">
             See Details ↓
           </button>
         </div>
 
         <!-- Expanded Back Card (Hidden by Default) -->
-        <div class="card-back absolute top-0 left-0 w-full h-full bg-white rounded-xl p-6 overflow-y-auto invisible opacity-0 transition-all duration-300">
+        <div class="card-back absolute top-0 left-0 w-full h-full bg-white rounded-xl p-6 overflow-y-auto invisible opacity-0 transition-all duration-300 overflow-auto">
           <!-- Close Button -->
           <button 
             class="close-button absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-            aria-label="Close project details"
           >
             ×
           </button>
@@ -98,8 +77,8 @@
           <div class="space-y-6">
             <!-- Image Carousel -->
             <div class="carousel flex snap-x snap-mandatory overflow-x-auto gap-4 pb-4">
-              <img src="project1-1.jpg" alt="Homepage" class="w-full h-64 object-cover snap-start">
-              <img src="project1-2.jpg" alt="Checkout" class="w-full h-64 object-cover snap-start">
+              <img src="" alt="Homepage" class="w-full h-64 object-cover snap-start">
+              <img src="" alt="Checkout" class="w-full h-64 object-cover snap-start">
             </div>
             
             <!-- Tech Stack -->
@@ -125,7 +104,74 @@
                 Live Demo
               </a>
               <a 
-                href="https://github.com/project1" 
+                href="https://github.com/JihadVercher22/salon-appointment-scheduler" 
+                target="_blank" 
+                rel="noopener"
+                class="border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out overflow-hidden">
+        <!-- Front Card -->
+        <div class="card-front p-6 cursor-pointer">
+          <img 
+            src="" 
+            alt="E-Commerce App Preview" 
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          >
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">E-Commerce App</h3>
+          <p class="text-gray-600 line-clamp-2">Modernized checkout flow increased conversion rates by 40% for a retail client.</p>
+          <button class="expand-button mt-4 text-blue-600 font-medium">
+            See Details ↓
+          </button>
+        </div>
+
+        <!-- Expanded Back Card (Hidden by Default) -->
+        <div class="card-back absolute top-0 left-0 w-full h-full bg-white rounded-xl p-6 overflow-y-auto invisible opacity-0 transition-all duration-300">
+          <!-- Close Button -->
+          <button 
+            class="close-button absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          >
+            ×
+          </button>
+          
+          <!-- Project Details -->
+          <div class="space-y-6">
+            <!-- Image Carousel -->
+            <div class="carousel flex snap-x snap-mandatory overflow-x-auto gap-4 pb-4">
+              <img src="" alt="Homepage" class="w-full h-64 object-cover snap-start">
+              <img src="" alt="Checkout" class="w-full h-64 object-cover snap-start">
+            </div>
+            
+            <!-- Tech Stack -->
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">React</span>
+              <span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-sm">Node.js</span>
+            </div>
+
+            <!-- Description -->
+            <p class="text-gray-600">
+              Revamped legacy codebase to implement a React-powered checkout flow with Stripe integration,
+              reducing cart abandonment by 30%. Added real-time inventory tracking and optimized mobile UX.
+            </p>
+
+            <!-- Links -->
+            <div class="flex gap-4">
+              <a 
+                href="https://live-demo.com" 
+                target="_blank" 
+                rel="noopener"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+              >
+                Live Demo
+              </a>
+              <a 
+                href="https://github.com/JihadVercher22/salon-appointment-scheduler" 
                 target="_blank" 
                 rel="noopener"
                 class="border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition"
@@ -163,6 +209,7 @@
 
   <section id="contact" class="py-16 bg-white">
     <div class="max-w-xl mx-auto px-4">
+      <label class="bg-center">Please submit your contact information</label>
       <form class="space-y-6">
         <div>
           <label class="block text-gray-700 mb-2">Name</label>
@@ -181,4 +228,6 @@
 
   
 </body>
+  <script src="Interactions.js"></script>
 </html>
+

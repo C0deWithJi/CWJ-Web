@@ -9,6 +9,8 @@ module.exports = {
     },
     // Add custom utilities via plugins (optional)
   plugins: [
+    tailwindcss: {},
+    autoprefixer: {},
     function({ addUtilities }) {
       addUtilities({
         '.carousel::-webkit-scrollbar': {
