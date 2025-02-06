@@ -13,51 +13,80 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="audit-form">
+  <div class="audit-container">
     <h1>Get Your Free Estimate</h1>
     
-    <form id="auditForm">
-      <!-- Services Checkboxes -->
-      <fieldset>
-        <legend>Services Needed</legend>
-        <label>
-          <input type="checkbox" name="web" value="web"> Web Development
+    <form id="auditForm" class="service-grid">
+      <!-- Web Development Card -->
+      <div class="service-card">
+        <label class="card-content">
+          <input type="checkbox" name="web" class="card-checkbox">
+          <h2>🌐 Web Development</h2>
+          <p>Custom websites tailored to your business needs.</p>
+          <div class="warming-message">
+            <p>We’ll craft a responsive, user-friendly site that grows with you!</p>
+          </div>
         </label>
-        <label>
-          <input type="checkbox" name="ios" value="ios"> iOS App
-        </label>
-        <label>
-          <input type="checkbox" name="android" value="android"> Android App
-        </label>
-      </fieldset>
+        <div class="pages-field">
+          <label>Number of Pages:
+            <select name="pages">
+              <option value="5">5 pages</option>
+              <option value="10">10 pages</option>
+              <option value="15">15 pages</option>
+            </select>
+          </label>
+        </div>
+      </div>
 
-      <!-- Website Pages (Conditional) -->
-      <div id="pagesField" style="display: none;">
-        <label>Number of Pages:
-          <select name="pages">
-            <option value="5">5 pages</option>
-            <option value="10">10 pages</option>
-            <option value="15">15 pages</option>
-          </select>
+      <!-- iOS App Card -->
+      <div class="service-card">
+        <label class="card-content">
+          <input type="checkbox" name="ios" class="card-checkbox">
+          <h2>🍎 iOS App</h2>
+          <p>Native apps for iPhones and iPads.</p>
+          <div class="warming-message">
+            <p>Your vision, built with Swift – seamless Apple ecosystem integration!</p>
+          </div>
         </label>
       </div>
 
-      <!-- SEO Toggle -->
-      <label>
-        <input type="checkbox" name="seo" value="seo"> Include SEO
-      </label>
+      <!-- Android App Card -->
+      <div class="service-card">
+        <label class="card-content">
+          <input type="checkbox" name="android" class="card-checkbox">
+          <h2>🤖 Android App</h2>
+          <p>Android solutions for billions of users.</p>
+          <div class="warming-message">
+            <p>Material Design excellence for Google Play success!</p>
+          </div>
+        </label>
+      </div>
+
+      <!-- SEO Card -->
+      <div class="service-card">
+        <label class="card-content">
+          <input type="checkbox" name="seo" class="card-checkbox">
+          <h2>🔍 SEO Optimization</h2>
+          <p>Boost your search engine rankings.</p>
+          <div class="warming-message">
+            <p>We’ll optimize your content to help customers find you!</p>
+          </div>
+        </label>
+      </div>
 
       <!-- Special Notes -->
-      <label>Special Notes:
-        <textarea name="notes" rows="4"></textarea>
-      </label>
+      <div class="notes-card">
+        <label>Special Requests:
+          <textarea name="notes" rows="4" placeholder="Tell us about your project..."></textarea>
+        </label>
+      </div>
 
-      <!-- Estimate Button -->
-      <button type="button" onclick="calculateEstimate()">Calculate Estimate</button>
+      <!-- Submit & Result -->
+      <button type="button" onclick="calculateEstimate()" class="estimate-button">
+        Calculate Estimate ➔
+      </button>
+      <div id="estimateResult" class="result-card"></div>
     </form>
-
-    <!-- Result Display -->
-    <div id="estimateResult" class="result-box"></div>
   </div>
 
   <script src="scripts/calculator.js"></script>
