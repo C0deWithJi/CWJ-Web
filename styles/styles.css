@@ -102,13 +102,43 @@
     display: block;
   }
 
-  /* Estimate Button */
+  /* Smaller, Sleeker Button */
   .estimate-button {
     background: #007bff;
     color: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
+    padding: 0.75rem 1.5rem; /* Reduced from 1rem 2rem */
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 1rem; /* Smaller font */
+    transition: background 0.2s, transform 0.2s;
+    width: auto; /* Remove full width if needed */
+    display: inline-block; /* Fits content size */
+  }
+
+  .estimate-button:hover {
+    background: #0056b3;
+    transform: translateY(-1px); /* Subtle lift effect */
+  }
+  /* Modern Textarea Styling */
+  .notes-card textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    resize: vertical; /* Allows vertical resizing only */
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .notes-card textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  }
+
+  .notes-card textarea::placeholder {
+    color: #999;
   }
 }
