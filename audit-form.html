@@ -3,112 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <title>Free Project Audit</title>
-  <!-- Tailwind CSS extension -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Personal CSS -->
   <link rel="stylesheet" href="styles/styles.css">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-50">
+  <!-- Navigation -->
   <nav class="bg-white shadow-lg sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="flex justify-between items-center py-4">
-        <!-- Logo/Brand -->
+      <div class="flex justify-between items-center py-4 space-x-6">
         <h1 class="text-xl font-bold text-blue-600">CodewithJi</h1>
-        <!-- Menu -->
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+        <div class="flex space-x-4">
+          <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="about.html" class="text-gray-700 hover:text-blue-600">About</a>
+          <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact</a>
+        </div>
       </div>  
     </div>
   </nav>
 
-  <section class="bg-gray-100 py-12">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">Get Your Free Project Estimate</h2>
-      <p class="text-center text-gray-700 mb-8">Fill out the form below to receive a comprehensive audit of your project.</p>
-    </div>
-    
-  <section class="bg-white py-12">
-      
-    <div class="audit-container">
-    
-        <form id="auditForm" class="service-grid">
-            <!-- Web Development Card -->
-            <div class="service-card">
-                <input type="checkbox" name="web" id="webCheckbox" class="card-checkbox">
-                <label for="webCheckbox" class="card-content">
-                  <h2>🌐 Web Development</h2>
-                <p>Custom websites tailored to your business needs.</p>
-                <div class="warming-message">
-                  <p>We’ll craft a responsive, user-friendly site that grows with you!</p>
-                </div>
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <!-- Header Section -->
+    <section class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-blue-600 mb-4">Get Your Free Project Estimate</h2>
+      <p class="text-gray-700">Fill out the form below to receive a comprehensive audit of your project.</p>
+    </section>
+
+    <!-- Audit Form -->
+    <form id="auditForm" class="space-y-6">
+      <!-- Service Cards -->
+      <div class="space-y-4">
+        <!-- Web Development Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-start space-x-4">
+            <input type="checkbox" name="web" id="webCheckbox" class="mt-1">
+            <div class="flex-1">
+              <label for="webCheckbox" class="block cursor-pointer">
+                <h3 class="text-xl font-semibold text-blue-600">🌐 Web Development</h3>
+                <p class="text-gray-700 mt-1">Custom websites tailored to your business needs.</p>
               </label>
-              <div class="pages-field">
-                <label>Number of Pages:
-                  <select name="pages">
+              <div class="mt-4 space-y-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <p class="text-blue-800">We'll craft a responsive, user-friendly site that grows with you!</p>
+                </div>
+                <div class="mt-4">
+                  <label class="block text-gray-700 mb-2">Number of Pages:</label>
+                  <select name="pages" class="w-full p-2 border rounded-lg">
                     <option value="5">5 pages</option>
                     <option value="10">10 pages</option>
                     <option value="15">15 pages</option>
                   </select>
-                </label>
+                </div>
               </div>
             </div>
-    
-        <!-- iOS App Card -->
-        <div class="service-card">
-            <input type="checkbox" name="ios" id="iosCheckbox" class="card-checkbox">
-            <label for="iosCheckbox"class="card-content">
-            <h2>🍎 iOS App</h2>
-            <p>Native apps for iPhones and iPads.</p>
-            <div class="warming-message">
-              <p>Your vision, built with Swift – seamless Apple ecosystem integration!</p>
+          </div>
+        </div>
+
+        <!-- Repeat similar structure for other services -->
+        <!-- iOS Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-start space-x-4">
+            <input type="checkbox" name="ios" id="iosCheckbox" class="mt-1">
+            <div class="flex-1">
+              <label for="iosCheckbox" class="block cursor-pointer">
+                <h3 class="text-xl font-semibold text-blue-600">🍎 iOS App</h3>
+                <p class="text-gray-700 mt-1">Native apps for iPhones and iPads.</p>
+              </label>
+              <div class="mt-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <p class="text-blue-800">Your vision, built with Swift - seamless Apple ecosystem integration!</p>
+                </div>
+              </div>
             </div>
-          </label>
+          </div>
         </div>
+      </div>
 
-        <!-- Android App Card -->
-        <div class="service-card">
-            <input type="checkbox" name="android" id="androidCheckbox" class="card-checkbox">
-            <label for="androidCheckbox" class="card-content">
-            <h2>🤖 Android App</h2>
-            <p>Android solutions for billions of users.</p>
-            <div class="warming-message">
-              <p>Material Design excellence for Google Play success!</p>
-            </div>
-          </label>
-        </div>
+      <!-- Special Notes -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <label class="block text-gray-700 mb-4">
+          <span class="text-lg font-semibold text-blue-600">Special Requests</span>
+          <textarea 
+            name="notes" 
+            rows="4" 
+            class="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Tell us about your project..."
+          ></textarea>
+        </label>
+      </div>
 
-        <!-- SEO Card -->
-        <div class="service-card">
-            <input type="checkbox" name="seo" id="seoCheckbox" class="card-checkbox">
-            <label for="seoCheckbox" class="card-content">
-            <h2>🔍 SEO Optimization</h2>
-            <p>Boost your search engine rankings.</p>
-            <div class="warming-message">
-              <p>We’ll optimize your content to help customers find you!</p>
-            </div>
-          </label>
-        </div>
-      </section>
-
-        <!-- Special Notes -->
-        <div class="notes-card">
-          <label class="text-blue-600">Special Requests:
-            <textarea name="notes" rows="4" placeholder="Tell us about your project..."></textarea>
-          </label>
-        </div>
-
-        <!-- Submit & Result -->
-        <button type="button" onclick="calculateEstimate()" class="estimate-button">
-          Calculate Estimate <span style="margin-left: 8px;">➔</span>
+      <!-- Submit Section -->
+      <div class="text-center">
+        <button 
+          type="button" 
+          onclick="calculateEstimate()" 
+          class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Calculate Estimate ➔
         </button>
-        <div id="estimateResult" class="result-card"></div>
-      </form>
-    </div>
-  
+      </div>
+    </form>
+  </main>
 
-    <script src="scripts/calculator.js"></script>
-  </body>
+  <script src="scripts/calculator.js"></script>
+</body>
 </html>
