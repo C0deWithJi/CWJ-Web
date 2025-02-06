@@ -58,12 +58,17 @@
   }
 
   .service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
     background: white;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s;
     border: 2px solid transparent;
+    margin: 0 auto
   }
 
   .service-card:hover {
