@@ -1,3 +1,18 @@
+// Toggle warming messages and pages field
+document.querySelectorAll('.card-checkbox').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      // Toggle warming message
+      const card = this.closest('.service-card');
+      card.classList.toggle('selected', this.checked);
+  
+      // Show/hide pages field for web dev
+      if (this.name === 'web') {
+        const pagesField = card.querySelector('.pages-field');
+        pagesField.style.display = this.checked ? 'block' : 'none';
+      }
+    });
+  });
+ 
  // Pricing Configuration (2024 Averages)
 const PRICING = {
     WEB_BASE: 3000,    // Base price for 5 pages
