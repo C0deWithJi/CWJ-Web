@@ -37,7 +37,7 @@
     transition-property: all;
   }
 
-  /* Critical CSS (Paste this first!) */
+  /* Critical CSS */
   body {
     font-family: Arial, sans-serif;
     margin: 0;
