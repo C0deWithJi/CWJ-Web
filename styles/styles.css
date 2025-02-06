@@ -37,34 +37,47 @@
     transition-property: all;
   }
 
+  /* Critical CSS (Paste this first!) */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f0f2f5;
+  }
+
+  .audit-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
   /* Service Cards */
   .service-grid {
     display: grid;
-    gap: 1.5rem;
+    gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
   .service-card {
     background: white;
     border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
     border: 2px solid transparent;
   }
 
   .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
   }
 
-  .card-checkbox:checked ~ * .service-card {
+  /* Selected Card Styling */
+  .card-checkbox:checked + .card-content {
     border-color: #007bff;
   }
 
   .card-content {
-    cursor: pointer;
     display: block;
+    cursor: pointer;
   }
 
   .warming-message {
@@ -72,53 +85,30 @@
     overflow: hidden;
     transition: max-height 0.3s ease-out;
     color: #666;
-    font-style: italic;
-    margin-top: 0.5rem;
+    margin-top: 10px;
   }
 
   .card-checkbox:checked ~ .card-content .warming-message {
     max-height: 100px;
   }
 
-  /* Pages Field */
+  /* Pages Dropdown (Web Dev Only) */
   .pages-field {
     display: none;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
+    margin-top: 15px;
   }
 
   input[name="web"]:checked ~ .pages-field {
     display: block;
   }
 
-  /* Notes & Results */
-  .notes-card, .result-card {
-    grid-column: 1 / -1;
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
+  /* Estimate Button */
   .estimate-button {
-    grid-column: 1 / -1;
-    padding: 1rem 2rem;
     background: #007bff;
     color: white;
     border: none;
+    padding: 12px 24px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1.1rem;
-    transition: background 0.2s;
-  }
-
-  .estimate-button:hover {
-    background: #0056b3;
-  }
-
-  .result-card {
-    background: #f8f9fa;
-    margin-top: 1rem;
   }
 }
