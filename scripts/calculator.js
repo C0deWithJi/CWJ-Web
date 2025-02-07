@@ -1,7 +1,7 @@
 // Pricing Configuration (Update values as needed)
 const PRICING = {
-  WEB_APP: { base: 3000, perPage: 500 },
-  MOBILE_APP: { base: 5000, platformMultiplier: 1.5 },
+  WEB_APP: { base: 1500, perPage: 250 },
+  MOBILE_APP: { base: 2000, platformMultiplier: 1.5 },
   SEO: 2000
 };
 
