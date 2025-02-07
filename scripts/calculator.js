@@ -8,7 +8,6 @@
   function calculateEstimate() {
     const form = document.getElementById('auditForm');
     const resultDiv = document.getElementById('estimateResult');
-    let total = 0;
 
     // Get form values
     const services = {
@@ -19,6 +18,9 @@
     };
   
     const pages = parseInt(form.elements.pages.value) || 0;
+
+    // Calculate total estimate
+    let total = 0;
 
     // Web Development
     if (services.web) {
