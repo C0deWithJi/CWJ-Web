@@ -1,52 +1,59 @@
-// Toggle warming messages and pages field
-document.querySelectorAll('.card-checkbox').forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
-      // Toggle warming message
-      const card = this.closest('.service-card');
-      card.classList.toggle('selected', this.checked);
-  
-      // Show/hide pages field for web dev
-      if (this.name === 'web') {
-        const pagesField = card.querySelector('.pages-field');
-        pagesField.style.display = this.checked ? 'block' : 'none';
-      }
-    });
-  });
- 
  // Pricing Configuration (2024 Averages)
-const PRICING = {
-    WEB_BASE: 3000,    // Base price for 5 pages
-    WEB_PER_PAGE: 500, // Extra per page
-    MOBILE_BASE: 5000, // Base per platform (iOS/Android)
-    SEO: 2000          // Flat fee
-  };
+ const PRICING = {
+  WEB_APP: { base: 3000, perPage: 500 },
+  MOBILE_APP: { base: 5000, platformMultiplier: 1.5 },
+  SEO: 2000
+};
   
   function calculateEstimate() {
     const form = document.getElementById('auditForm');
     const resultDiv = document.getElementById('estimateResult');
     let total = 0;
+
+    // Get form values
+    const services = {
+      web: form.elements.web.checked,
+      ios: form.elements.ios.checked,
+      android: form.elements.android.checked,
+      seo: form.elements.seo.checked
+    };
   
+    const pages = parseInt(form.elements.pages.value) || 0;
+
     // Web Development
-    if (form.web.checked) {
-      const pages = parseInt(form.pages.value) || 5;
-      total += PRICING.WEB_BASE + (pages - 5) * PRICING.WEB_PER_PAGE;
+    if (services.web) {
+      total += PRICING.WEB_APP.base + (pages * PRICING.WEB_APP.perPage);
     }
   
     // Mobile Apps
-    if (form.ios.checked) total += PRICING.MOBILE_BASE;
-    if (form.android.checked) total += PRICING.MOBILE_BASE;
+    if (services.ios || services.android)  {
+      const platforms = [services.ios, services.android].filter(Boolean).length;
+      total += PRICING.MOBILE_APP.base * platforms * PRICING.MOBILE_APP.platformMultiplier;
+    }
   
     // SEO
-    if (form.seo.checked) total += PRICING.SEO;
+    if (services.seo) {
+      total += PRICING.SEO;
+    }
   
     // Display Result
     resultDiv.innerHTML = `
-      <h3>Estimated Cost: $${total.toLocaleString()} – $${(total * 1.2).toLocaleString()}</h3>
-      <small>(Higher range accounts for potential complexity)</small>
-    `;
+      <div class="p-4 mt-4 bg-blue-50 rounded-lg">
+      <h3 class="text-xl font-semibold">
+        Estimated Cost: $${total.toLocaleString()} – $${Math.round(total * 1.2).toLocaleString()}
+      </h3>
+      <p class="text-sm text-gray-600 mt-2">
+        (Higher range accounts for potential complexity)
+      </p>
+    </div>
+  `;
   }
   
-  // Show/hide pages field based on web checkbox
-  document.querySelector('input[name="web"]').addEventListener('change', (e) => {
-    document.getElementById('pagesField').style.display = e.target.checked ? 'block' : 'none';
+  // Initialize event listeners
+document.addEventListener('DOMContentLoaded', () => {
+  // Add event listener to web checkbox to show/hide pages
+  document.getElementById('webCheckbox').addEventListener('change', function() {
+    const pagesField = document.querySelector('.pages-field');
+    pagesField.style.display = this.checked ? 'block' : 'none';
   });
+});
