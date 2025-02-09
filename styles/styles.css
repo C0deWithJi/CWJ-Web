@@ -228,4 +228,20 @@
           grid-template-columns: 1fr;
       }
   }
+  .hero {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      text-align: center;
+  }
+
+  .monologue-card {
+      background: white;
+      padding: 3rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      position: relative;
+      margin: 2rem auto;
+      max-width: 800px;
+  }
 }
