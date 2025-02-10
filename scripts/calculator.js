@@ -5,7 +5,8 @@ const PRICING = {
   SEO: 2000
 };
 
-function calculateEstimate() {
+// Modified calculateEstimate()
+async function calculateEstimate() {
   const form = document.getElementById('auditForm');
   const resultDiv = document.getElementById('estimateResult');
   
@@ -49,7 +50,20 @@ function calculateEstimate() {
       </p>
     </div>
   `;
+
+
+  // Get contact ID (assuming you have one)
+  const contact_id = await getOrCreateContact(); // Implement this!
+
+  // Save audit request
+  await submitAuditForm({
+    services: selectedServices,
+    pages: pageCount,
+    notes: specialNotes,
+    contact_id
+  });
 }
+
 
 // Initialize event listeners
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,3 +73,29 @@ document.addEventListener('DOMContentLoaded', () => {
     pagesField.style.display = this.checked ? 'block' : 'none';
   });
 });
+
+async function submitAuditForm(data) {
+  const { services, pages, notes, contact_id } = data;
+
+  try {
+    // Insert into audit_requests table
+    const { data: auditData, error } = await supabase
+      .from('audit_requests')
+      .insert([{ 
+        contact_id, 
+        services: JSON.stringify(services), 
+        pages, 
+        notes 
+      }])
+      .select();
+
+    if (error) throw error;
+    
+    console.log('Audit saved:', auditData);
+    return auditData[0].id;
+  } catch (err) {
+    alert('Failed to save audit: ' + err.message);
+    return null;
+  }
+}
+
