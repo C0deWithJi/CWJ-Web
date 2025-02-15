@@ -44,13 +44,15 @@ async function submitContactForm(event) {
   event.preventDefault();
 
   const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
   const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+  const company = document.getElementById('company').value;
+  const message = document.getElementById('brief').value;
 
   try {
     const { data, error } = await supabase
       .from('contacts')
-      .insert([{ name, email, message }])
+      .insert([{ name, phone, email, company, message }])
       .select();
 
     if (error) throw error;
@@ -68,19 +70,26 @@ async function getOrCreateContact() {
 
   try {
     // Check if contact exists
-    const { data: existing } = await supabase
+    const { data: existing, error: existingError } = await supabase
       .from('contacts')
       .select('id')
       .eq('email', email)
       .single();
 
+    if (existingError && existingError.code !== 'PGRST116') {
+      // Handle error if it's not a "No rows found" error
+      throw existingError;
+    }
+
     if (existing) return existing.id;
 
     // Create new contact
-    const { data: newContact } = await supabase
-      .from('contacts')
+    const { data: newContact, error: newContactError } = await supabase
+      .from('contacts') // Changed from 'users' to 'contacts'
       .insert([{ email }])
       .select();
+
+    if (newContactError) throw newContactError;
 
     return newContact[0].id;
   } catch (err) {
@@ -88,3 +97,6 @@ async function getOrCreateContact() {
     return null;
   }
 }
+
+// Attach to form submit
+document.getElementById('contactForm').addEventListener('submit', submitContactForm);
