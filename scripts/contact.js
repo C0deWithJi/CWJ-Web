@@ -1,4 +1,6 @@
-const supabaseurl = process.env.SUPABASE_URL
+import { createClient } from '@supabase/supabase-js';   
+    
+    const supabaseurl = process.env.SUPABASE_URL
     const supabasekey = process.env.SUPABASE_KEY
     const supabase = window.supabase.createClient(supabaseurl, supabasekey)
 
