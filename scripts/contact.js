@@ -1,3 +1,7 @@
+const supabaseurl = process.env.SUPABASE_URL
+    const supabasekey = process.env.SUPABASE_KEY
+    const supabase = window.supabase.createClient(supabaseurl, supabasekey)
+
 async function submitContactForm(event) {
     event.preventDefault();
   
@@ -57,21 +61,4 @@ async function submitContactForm(event) {
   }
   
   // Attach to form submit
-  document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-
-    try {
-        const ( data, error ) = await supabase
-            .from('contacts')
-            .insert([{ name, email }])
-            .select();
-
-        if (error) throw error;
-        alert('Thank you! We’ll be in touch soon.');
-    } catch (err) {
-        alert('Submission failed: ' + err.message);
-    }
-  });
+  document.getElementById('contactForm').addEventListener('submit', submitContactForm);
