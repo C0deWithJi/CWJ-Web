@@ -57,4 +57,21 @@ async function submitContactForm(event) {
   }
   
   // Attach to form submit
-  document.getElementById('contactForm').addEventListener('submit', submitContactForm);
+  document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+
+    try {
+        const ( data, error ) = await supabase
+            .from('contacts')
+            .insert([{ name, email }])
+            .select();
+
+        if (error) throw error;
+        alert('Thank you! We’ll be in touch soon.');
+    } catch (err) {
+        alert('Submission failed: ' + err.message);
+    }
+  });
