@@ -8,7 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    
+    const supabaseurl = process.env.SUPABASE_URL
+    const supabasekey = process.env.SUPABASE_KEY
+    const supabase = window.supabase.createClient(supabaseurl, supabasekey)
   </script>
 </head>
 <body class="bg-gray-50">
