@@ -78,8 +78,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function submitAuditForm(data) {
-  const { services, pages, notes, contact_id } = data;
+  event.preventDefault(); // Prevent form submission
 
+  const form = document.getElementById('auditForm');
+  const services = {
+    web: form.elements.web.checked,
+    ios: form.elements.ios.checked,
+    android: form.elements.android.checked,
+    seo: form.elements.seo.checked
+  };
+  const pages = parseInt(form.elements.pages.value) || 0;
+  const notes = form.elements.notes.value;
+  const contact_id = await getOrCreateContact(); // Implement this!
+  if (!contact_id) {
+    alert('Failed to retrieve or create contact.');
+    return;
+  }
   try {
     // Insert into audit_requests table
     const { data: auditData, error } = await supabase
@@ -96,7 +110,8 @@ async function submitAuditForm(data) {
     if (error) throw error;
     
     console.log('Audit saved:', auditData);
-    return auditData[0].id;
+    alert('Audit saved successfully!');
+    form.reset(); // Reset the form after submission
   } catch (err) {
     alert('Failed to save audit: ' + err.message);
     return null;
