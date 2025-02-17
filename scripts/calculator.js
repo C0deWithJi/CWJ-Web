@@ -55,17 +55,6 @@ async function calculateEstimate() {
       </p>
     </div>
   `;
-
-  // Get contact ID (assuming you have one)
-  const contact_id = await getOrCreateContact(); // Implement this!
-
-  // Save audit request
-  await submitAuditForm({
-    services,
-    pages,
-    notes: form.elements.notes.value,
-    contact_id
-  });
 }
 
 // Initialize event listeners
@@ -74,7 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('webCheckbox').addEventListener('change', function() {
     const pagesField = document.querySelector('.pages-field');
     pagesField.style.display = this.checked ? 'block' : 'none';
+    calculateEstimate(); // Update estimate on change
   });
+
+  // Add event listeners to other checkboxes
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', calculateEstimate);
+  });
+
+  // Add event listener to pages dropdown
+  document.querySelector('select[name="pages"]').addEventListener('change', calculateEstimate);
 });
 
 async function submitAuditForm(event) {
