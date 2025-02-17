@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="../styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    const supabaseurl = process.env.SUPABASE_URL
-    const supabasekey = process.env.SUPABASE_KEY
-    const supabase = window.supabase.createClient(supabaseurl, supabasekey)
+  <script >
+    const supabaseUrl = 'https://ttmecnsxujetavbknhnp.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0bWVjbnN4dWpldGF2YmtuaG5wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk1MDU4NTUsImV4cCI6MjA1NTA4MTg1NX0.ot4EeZo4-IdYVcvUugGJUhP29HMMbvKonaUQ-cP6U38'
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
   </script>
+  <script src="../scripts/contact.js"></script>
 </head>
 <body class="bg-gray-50">
   <!-- Navigation -->
@@ -63,5 +64,4 @@
   </section>
 
 </body>
-<script src="../scripts/contact.js"></script>
 </html>
