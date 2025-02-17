@@ -115,3 +115,42 @@ async function submitAuditForm(event) {
   }
 }
 
+async function getOrCreateContact() {
+  const form = document.getElementById('auditForm');
+  const email = form.elements.email.value.trim(); // Get email from form
+
+  if (!email) {
+    alert('Please provide your email address.');
+    return null;
+  }
+
+  try {
+    // Check if contact exists
+    const { data: existingContact, error: lookupError } = await supabase
+      .from('contacts')
+      .select('id')
+      .eq('email', email)
+      .single(); // Assumes emails are unique
+
+    if (existingContact) return existingContact.id;
+
+    // Create new contact if not found
+    const { data: newContact, error: createError } = await supabase
+      .from('contacts')
+      .upsert(
+        { email },
+        { onConflict: 'email', ignoreDuplicates: false }
+      )
+      .select()
+      .single();
+
+    if (createError) throw createError;
+    
+    return newContact.id;
+    
+  } catch (error) {
+    console.error('Contact error:', error);
+    alert('Error processing your contact information');
+    return null;
+  }
+}
