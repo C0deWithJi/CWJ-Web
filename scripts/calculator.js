@@ -51,7 +51,6 @@ async function calculateEstimate() {
     </div>
   `;
 
-
   // Get contact ID (assuming you have one)
   const contact_id = await getOrCreateContact(); // Implement this!
 
