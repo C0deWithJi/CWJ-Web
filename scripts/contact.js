@@ -23,7 +23,7 @@ function showMessage(type, message) {
 
 async function submitContactForm(event) {
   event.preventDefault();
-  submitButton.disabled = true;
+  submitButton.disabled = false;
 
   // Get form data
   const formData = {
