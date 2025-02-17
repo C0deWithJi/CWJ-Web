@@ -8,9 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    const supabaseurl = process.env.SUPABASE_URL
-    const supabasekey = process.env.SUPABASE_KEY
-    const supabase = window.supabase.createClient(supabaseurl, supabasekey)
+    const supabaseUrl = 'https://ttmecnsxujetavbknhnp.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0bWVjbnN4dWpldGF2YmtuaG5wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk1MDU4NTUsImV4cCI6MjA1NTA4MTg1NX0.ot4EeZo4-IdYVcvUugGJUhP29HMMbvKonaUQ-cP6U38';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
   </script>
 </head>
 <body class="bg-gray-50">
@@ -84,43 +84,43 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <div class="flex items-start space-x-4">
-          <input type="checkbox" name="android" id="androidCheckbox" class="mt-1">
-          <div class="flex-1">
-            <label for="androidCheckbox" class="block cursor-pointer">
-              <h3 class="text-xl font-semibold text-blue-600">🤖 Android App</h3>
-              <p class="text-gray-700 mt-1">Android solutions for billions of users.</p>
-            </label>
-            <div class="mt-4">
-              <div class="bg-blue-50 p-4 rounded-lg">
-                <p class="text-blue-800">Material Design excellence for Google Play success!</p>
+        <!-- Android Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-start space-x-4">
+            <input type="checkbox" name="android" id="androidCheckbox" class="mt-1">
+            <div class="flex-1">
+              <label for="androidCheckbox" class="block cursor-pointer">
+                <h3 class="text-xl font-semibold text-blue-600">🤖 Android App</h3>
+                <p class="text-gray-700 mt-1">Android solutions for billions of users.</p>
+              </label>
+              <div class="mt-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <p class="text-blue-800">Material Design excellence for Google Play success!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEO Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-start space-x-4">
+            <input type="checkbox" name="seo" id="seoCheckbox" class="mt-1">
+            <div class="flex-1">
+              <label for="seoCheckbox" class="block cursor-pointer">
+                <h3 class="text-xl font-semibold text-blue-600">🔍 SEO</h3>
+                <p class="text-gray-700 mt-1">Boost your search engine rankings.</p>
+              </label>
+              <div class="mt-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <p class="text-blue-800">We’ll optimize your content to help customers find you!</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <div class="flex items-start space-x-4">
-        <input type="checkbox" name="seo" id="seoCheckbox" class="mt-1">
-        <div class="flex-1">
-          <label for="seoCheckbox" class="block cursor-pointer">
-            <h3 class="text-xl font-semibold text-blue-600">🔍 SEO</h3>
-            <p class="text-gray-700 mt-1">Boost your search engine rankings.</p>
-          </label>
-          <div class="mt-4">
-            <div class="bg-blue-50 p-4 rounded-lg">
-              <p class="text-blue-800">We’ll optimize your content to help customers find you!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
       <!-- Special Notes -->
       <div class="bg-white p-6 rounded-lg shadow-md">
