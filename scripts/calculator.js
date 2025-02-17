@@ -78,10 +78,18 @@ function initEventListeners() {
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', initEventListeners);
+
 async function submitAuditForm(event) {
   event.preventDefault(); // Prevent form submission
 
   const form = document.getElementById('auditForm');
+  const resultDiv = document.getElementById('estimateResult');
+
+  // Get contact ID first
+  const contact_id = await getOrCreateContact();
+  if (!contact_id) return;
+
+  // Get form data
   const services = {
     web: form.elements.web.checked,
     ios: form.elements.ios.checked,
@@ -92,26 +100,39 @@ async function submitAuditForm(event) {
   const notes = form.elements.notes.value;
   const contact_id = await getOrCreateContact(); // Implement this!
 
+  const formData = {  
+      contact_id, 
+      services: JSON.stringify(services), 
+      pages, 
+      notes,
+      email,
+      createdAt: new Date().toISOString() 
+  }
+
   try {
     // Insert into audit_requests table
     const { data: auditData, error } = await supabase
       .from('audit_requests')
-      .insert([{ 
-        contact_id, 
-        services: JSON.stringify(services), 
-        pages, 
-        notes,
-        createdAt: new Date().toISOString() 
-      }])
+      .insert([formData])
       .select();
 
     if (error) throw error;
     
-    console.log('Audit saved:', auditData);
-    alert('Audit saved successfully!');
-    form.reset(); // Reset the form after submission
+    // Show success & reset form
+    resultDiv.innerHTML = `
+      <div class="p-4 mt-4 bg-green-50 text-green-700 rounded-lg">
+        Success! We've received your request and will contact you at ${formData.email}.
+      </div>
+    `;
+    
+    form.reset();
+    
   } catch (err) {
-    alert('Failed to save audit: ' + err.message);
+    resultDiv.innerHTML = `
+      <div class="p-4 mt-4 bg-red-50 text-red-700 rounded-lg">
+        Error submitting request: ${err.message}
+      </div>
+    `;
   }
 }
 
