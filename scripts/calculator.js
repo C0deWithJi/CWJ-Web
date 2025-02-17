@@ -58,23 +58,31 @@ async function calculateEstimate() {
 }
 
 // Initialize event listeners
-document.addEventListener('DOMContentLoaded', () => {
-  // Add event listener to web checkbox to show/hide pages
-  document.getElementById('webCheckbox').addEventListener('change', function() {
-    const pagesField = document.querySelector('.pages-field');
-    pagesField.style.display = this.checked ? 'block' : 'none';
-    calculateEstimate(); // Update estimate on change
-  });
+function initEventListeners() {
+  // Web Checkbox + Pages
+  const webCheckbox = document.getElementById('webCheckbox');
+  const pagesSelect = document.querySelector('select[name="pages"]');
 
-  // Add event listeners to other checkboxes
+  if (webCheckbox && pagesSelect) {
+    webCheckbox.addEventListener('change', () => {
+      document.querySelector('.pages-field').style.display = 
+        webCheckbox.checked ? 'block' : 'none';
+      calculateEstimate();
+    });
+    
+    pagesSelect.addEventListener('change', calculateEstimate);
+  }
+
+  // All checkboxes
   document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', calculateEstimate);
   });
 
-  // Add event listener to pages dropdown
-  document.querySelector('select[name="pages"]').addEventListener('change', calculateEstimate);
-});
+  document.getElementById('submitButton').addEventListener('click', submitAuditForm);
+}
 
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', initEventListeners);
 async function submitAuditForm(event) {
   event.preventDefault(); // Prevent form submission
 
