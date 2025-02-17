@@ -98,7 +98,6 @@ async function submitAuditForm(event) {
   };
   const pages = parseInt(form.elements.pages.value) || 0;
   const notes = form.elements.notes.value;
-  const contact_id = await getOrCreateContact(); // Implement this!
 
   const formData = {  
       contact_id, 
