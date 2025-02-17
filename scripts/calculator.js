@@ -48,7 +48,7 @@ async function calculateEstimate() {
   resultDiv.innerHTML = `
     <div class="p-4 mt-4 bg-blue-50 rounded-lg">
       <h3 class="text-xl font-semibold">
-        Estimated Cost: $${total.toLocaleString()} – $${Math.round(total * 1.2).toLocaleString()}
+        Estimated Cost: $${total.toLocaleString()} - $${Math.round(total * 1.2).toLocaleString()}
       </h3>
       <p class="text-sm text-gray-600 mt-2">
         (Higher range accounts for potential complexity)
