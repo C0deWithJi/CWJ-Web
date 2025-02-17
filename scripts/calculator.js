@@ -5,11 +5,6 @@ const PRICING = {
   SEO: 2000
 };
 
-// Initialize Supabase
-const supabaseUrl = 'https://ttmecnsxujetavbknhnp.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0bWVjbnN4dWpldGF2YmtuaG5wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk1MDU4NTUsImV4cCI6MjA1NTA4MTg1NX0.ot4EeZo4-IdYVcvUugGJUhP29HMMbvKonaUQ-cP6U38';
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
 // Modified calculateEstimate()
 async function calculateEstimate() {
   const form = document.getElementById('auditForm');
