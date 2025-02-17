@@ -1,6 +1,3 @@
-import { createClient } from '@supabase/supabase-js';   
-    
-
 
 async function submitContactForm(event) {
     event.preventDefault();
