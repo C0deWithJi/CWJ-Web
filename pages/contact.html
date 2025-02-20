@@ -23,6 +23,9 @@
       const email = document.getElementById('email').value
       const phone = document.getElementById('phone').value
       const contactData = { email, phone }
+      const brief = document.getElementById('brief').value
+      const company = document.getElementById('company').value  
+      const name = document.getElementById('name').value
       
       const contactId = await addContact(contactData)
       if (contactId) {
@@ -88,11 +91,5 @@
     </div>
   </section>
 </body>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script >
-    const supabaseUrl = 'https://ttmecnsxujetavbknhnp.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0bWVjbnN4dWpldGF2YmtuaG5wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk1MDU4NTUsImV4cCI6MjA1NTA4MTg1NX0.ot4EeZo4-IdYVcvUugGJUhP29HMMbvKonaUQ-cP6U38'
-    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-  </script>
   <script src="../scripts/contact.js"></script>
 </html>
