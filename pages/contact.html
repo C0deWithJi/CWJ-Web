@@ -6,8 +6,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script type="module">
-    import supabase from './supabase-client.js'
+  <<script type="module">
+    import { addContact, createAuditRequest } from '../backend/queries.js'
     
     async function loadContacts() {
       const { data, error } = await supabase
@@ -17,8 +17,25 @@
       if (error) console.error('Error:', error)
       else console.log('Contacts:', data)
     }
+
+    async function handleContactFormSubmit(event) {
+      event.preventDefault()
+      const email = document.getElementById('email').value
+      const phone = document.getElementById('phone').value
+      const contactData = { email, phone }
+      
+      const contactId = await addContact(contactData)
+      if (contactId) {
+        console.log('Contact added with ID:', contactId)
+      } else {
+        console.error('Failed to add contact')
+      }
+    }
     
-    loadContacts()
+    document.addEventListener('DOMContentLoaded', () => {
+      loadContacts()
+      document.getElementById('contact-form').addEventListener('submit', handleContactFormSubmit)
+    })
   </script>
 </head>
 <body class="bg-gray-50">
