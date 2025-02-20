@@ -244,4 +244,13 @@
       margin: 2rem auto;
       max-width: 800px;
   }
+  .result-card {
+    background-color: #f0f4f8; /* Light blue background */
+    border: 1px solid #d1e7ff; /* Light blue border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding */
+    margin-top: 16px; /* Margin on top */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    color: #333; /* Text color */
+  }
 }
