@@ -1,7 +1,7 @@
 import { supabase } from './backend/supabase-client.js'
 
 // Add contact
-async function addContact(contactData) {
+export async function addContact(contactData) {
     // Check if the contact already exists by email and phone number
     const { data: existingContact, error: contactError } = await supabase
       .from('Contacts')
@@ -35,7 +35,7 @@ async function addContact(contactData) {
 
 
 // Insert audit request
-async function createAuditRequest(requestData) {
+export async function createAuditRequest(requestData) {
   // Check if the contact already exists
   const { data: contactData, error: contactError } = await supabase
     .from('Contacts')
