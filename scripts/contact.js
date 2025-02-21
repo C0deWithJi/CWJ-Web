@@ -1,69 +1,40 @@
-import { supabase } from '../backend/supabase-client'
+import { addContact, createAuditRequest } from '../backend/queries.js';
 
-// DOM Elements
-const form = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
-const submitButton = document.getElementById('submitButton');
-
-
-async function submitContactForm(event) {
-  event.preventDefault();
-
-  // Get form data
-  const formData = {
-    name: form.name.value.trim(),
-    email: form.email.value.trim(),
-    phone: form.phone?.value.trim() || null,
-    company: form.company?.value.trim() || null,
-    message: form.brief?.value.trim() || null
-  };
-
-  // Validate
-  const errors = validateForm(formData);
-  if (errors.length > 0) {
-    showMessage('red', errors.join('<br>'));
-    return;
-  }
-
-  try {
-    // Insert into Supabase
-    const { data, error } = await supabase
-      .from('contacts')
-      .insert([formData])
-      .select();
-
-    if (error) {
-      console.error('Supabase Error:', error);
-      throw new Error(error.message);
-      return;
-    } else {
-
-    // Success handling
-    showMessage('green', 'Thank you! We\'ll be in touch soon.');
-    form.reset();
-    }
-    // Log success to console
-    console.log('Contact created:', data[0]);
-
-  } catch (err) {
-    console.error('Submission Error:', err);
-    showMessage('red', `Submission failed: ${err.message}`);
-  } finally {
-    submitButton.disabled = false;
-  }
-}
-
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
-  form.addEventListener('submit', submitContactForm);
-  
-  // Real-time validation
-  form.addEventListener('input', () => {
-    const errors = validateForm({
-      name: form.name.value,
-      email: form.email.value
-    });
-    submitButton.disabled = errors.length > 0;
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    // Get form data
+    const formData = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone?.value.trim() || null,
+      company: form.company?.value.trim() || null,
+      message: form.brief?.value.trim() || null
+    };
+
+    // Validate
+    const errors = validateForm(formData);
+    if (errors.length > 0) {
+      showMessage('red', errors.join('<br>'));
+      return;
+    }
+
+    try {
+      // Insert into Supabase
+      const contactId = await addContact(formData);
+      if (contactId) {
+        showMessage('green', 'Form submitted successfully!');
+        form.reset();
+      } else {
+        showMessage('red', 'Failed to add contact');
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      showMessage('red', 'There was an error submitting the form.');
+    }
   });
 });
 
