@@ -1,4 +1,4 @@
-import { supabase } from './backend/supabase-client.js'
+import { supabase } from '../backend/supabase-client.js'
 
 // Add contact
 export async function addContact(contactData) {

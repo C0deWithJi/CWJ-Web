@@ -1,4 +1,4 @@
-import { supabase } from './backend/supabase-client.js'
+import { supabase } from '../backend/supabase-client'
 
 // DOM Elements
 const form = document.getElementById('contactForm');

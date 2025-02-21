@@ -1,4 +1,4 @@
-import { supabase } from './backend/supabase-client.js';
+import { supabase } from '../backend/supabase-client.js';
 
 // Pricing Configuration (Update values as needed)
 const PRICING = {
