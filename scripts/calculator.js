@@ -1,3 +1,5 @@
+import { supabase } from './backend/supabase-client.js';
+
 // Pricing Configuration (Update values as needed)
 const PRICING = {
   WEB_APP: { base: 1500, perPage: 250 },
