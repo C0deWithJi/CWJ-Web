@@ -3,23 +3,6 @@ const form = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 const submitButton = document.getElementById('submitButton');
 
-// Form Validation
-function validateForm(data) {
-  const errors = [];
-  
-  if (!data.name?.trim()) errors.push('Name is required');
-  if (!data.email?.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) errors.push('Valid email is required');
-  
-  return errors;
-}
-
-// UI Helpers
-function showMessage(type, message) {
-  formMessage.classList.remove('hidden', 'bg-red-50', 'text-red-700', 'bg-green-50', 'text-green-700');
-  formMessage.classList.add(`bg-${type}-50`, `text-${type}-700`);
-  formMessage.innerHTML = message;
-  formMessage.classList.remove('hidden');
-}
 
 async function submitContactForm(event) {
   event.preventDefault();
