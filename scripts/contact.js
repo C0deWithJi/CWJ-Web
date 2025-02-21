@@ -38,7 +38,7 @@ async function submitContactForm(event) {
   const errors = validateForm(formData);
   if (errors.length > 0) {
     showMessage('red', errors.join('<br>'));
-    submitButton.disabled = false;
+    submitButton.disabled = true;
     return;
   }
 
