@@ -23,7 +23,6 @@ function showMessage(type, message) {
 
 async function submitContactForm(event) {
   event.preventDefault();
-  submitButton.disabled = true;
 
   // Get form data
   const formData = {
@@ -38,7 +37,6 @@ async function submitContactForm(event) {
   const errors = validateForm(formData);
   if (errors.length > 0) {
     showMessage('red', errors.join('<br>'));
-    submitButton.disabled = true;
     return;
   }
 
@@ -52,6 +50,7 @@ async function submitContactForm(event) {
     if (error) {
       console.error('Supabase Error:', error);
       throw new Error(error.message);
+      return;
     }
 
     // Success handling
