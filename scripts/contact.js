@@ -1,3 +1,5 @@
+import { supabase } from './backend/supabase-client.js'
+
 // DOM Elements
 const form = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
