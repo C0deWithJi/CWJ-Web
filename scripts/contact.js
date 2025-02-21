@@ -51,12 +51,12 @@ async function submitContactForm(event) {
       console.error('Supabase Error:', error);
       throw new Error(error.message);
       return;
-    }
+    } else {
 
     // Success handling
     showMessage('green', 'Thank you! We\'ll be in touch soon.');
     form.reset();
-    
+    }
     // Log success to console
     console.log('Contact created:', data[0]);
 
@@ -81,3 +81,18 @@ document.addEventListener('DOMContentLoaded', () => {
     submitButton.disabled = errors.length > 0;
   });
 });
+
+function validateForm(formData) {
+  const errors = [];
+  if (!formData.name) errors.push('Name is required.');
+  if (!formData.email) errors.push('Email is required.');
+  if (!formData.phone) errors.push('Phone number is required.');
+  if (!formData.message) errors.push('Brief project description is required.');
+  return errors;
+}
+
+function showMessage(color, message) {
+  const messageBox = document.getElementById('message-box');
+  messageBox.innerHTML = message;
+  messageBox.style.color = color;
+}
