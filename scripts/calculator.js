@@ -48,7 +48,7 @@ async function calculateEstimate() {
 // Attach event listener to the form
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('auditForm');
-  form.addEventListener('submit', calculateEstimate);
+  form.addEventListener('submit', submitAuditForm);
 });
 
 async function submitAuditForm(event) {
