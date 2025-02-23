@@ -45,32 +45,11 @@ async function calculateEstimate() {
   resultDiv.innerHTML = `Estimated Cost: $${total}`;
 }
 
-// Initialize event listeners
-function initEventListeners() {
-  // Web Checkbox + Pages
-  const webCheckbox = document.getElementById('webCheckbox');
-  const pagesSelect = document.querySelector('select[name="pages"]');
-
-  if (webCheckbox && pagesSelect) {
-    webCheckbox.addEventListener('change', () => {
-      document.querySelector('.pages-field').style.display = 
-        webCheckbox.checked ? 'block' : 'none';
-      calculateEstimate();
-    });
-    
-    pagesSelect.addEventListener('change', calculateEstimate);
-  }
-
-  // All checkboxes
-  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-    checkbox.addEventListener('change', calculateEstimate);
-  });
-
-  document.getElementById('submitButton').addEventListener('click', submitAuditForm);
-}
-
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', initEventListeners);
+// Attach event listener to the form
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('auditForm');
+  form.addEventListener('submit', calculateEstimate);
+});
 
 async function submitAuditForm(event) {
   event.preventDefault(); // Prevent form submission
