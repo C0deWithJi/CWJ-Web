@@ -1,4 +1,9 @@
-import { supabase } from '../backend/supabase-client.js'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY // Use service_role here
+)
 
 // Add contact
 export async function addContact(contactData) {
