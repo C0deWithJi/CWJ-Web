@@ -6,6 +6,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script type="module">
+    import { handleContactFormSubmit } from '../backend/queries.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('contactForm').addEventListener('submit', handleContactFormSubmit);
+    });
+  </script>
 </head>
 <body class="bg-gray-50">
   <!-- Navigation -->
@@ -56,30 +63,5 @@
       </form>
     </div>
   </section>
-  <<script type="module">
-    import { addContact, createAuditRequest } from '../backend/queries.js'
-    import { supabase } from '../backend/supabase-client.js'
-
-    async function handleContactFormSubmit(event) {
-      event.preventDefault()
-      const email = document.getElementById('email').value
-      const phone = document.getElementById('phone').value
-      const contactData = { email, phone }
-      const brief = document.getElementById('brief').value
-      const company = document.getElementById('company').value  
-      const name = document.getElementById('name').value
-      
-      const contactId = await addContact(contactData)
-      if (contactId) {
-        console.log('Contact added with ID:', contactId)
-      } else {
-        console.error('Failed to add contact')
-      }
-    }
-    
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('contactForm').addEventListener('submit', handleContactFormSubmit)
-    })
-  </script>
 </body>
 </html>
