@@ -4,7 +4,7 @@ import { supabase } from '../backend/supabase-client.js'
 export async function addContact(contactData) {
     // Check if the contact already exists by email and phone number
     const { data: existingContact, error: contactError } = await supabase
-      .from('Contacts')
+      .from('contacts')
       .select('id')
       .or(`email.eq.${contactData.email},phone.eq.${contactData.phone}`)
       .single()
@@ -20,7 +20,7 @@ export async function addContact(contactData) {
     } else {
       // Contact does not exist, insert new contact
       const { data: newContactData, error: newContactError } = await supabase
-        .from('Contacts')
+        .from('contacts')
         .insert([{ email: contactData.email, phone: contactData.phone }])
         .select('id')
         .single()
@@ -38,7 +38,7 @@ export async function addContact(contactData) {
 export async function createAuditRequest(requestData) {
   // Check if the contact already exists
   const { data: contactData, error: contactError } = await supabase
-    .from('Contacts')
+    .from('contacts')
     .select('id')
     .eq('email', requestData.email)
     .single()
@@ -55,7 +55,7 @@ export async function createAuditRequest(requestData) {
   } else {
     // Contact does not exist, insert new contact
     const { data: newContactData, error: newContactError } = await supabase
-      .from('Contacts')
+      .from('contacts')
       .insert([{ email: requestData.email }])
       .select('id')
       .single()
@@ -69,7 +69,7 @@ export async function createAuditRequest(requestData) {
 
   // Insert audit request with the correct contact_id
   const { data: auditData, error: auditError } = await supabase
-    .from('Audit_Requests')
+    .from('audit_requests')
     .insert([{ ...requestData, contact_id: contactId }])
     
   if (auditError) {
