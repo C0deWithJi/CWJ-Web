@@ -34,7 +34,7 @@ function calculateEstimate() {
   }
 
   // Display the result
-  resultDiv.innerHTML = `Estimated Cost: $${total}`;
+  resultDiv.innerHTML = `Estimated Cost: $${total} - $${total * 1.4}`;
 }
 
 // Function to handle form submission
