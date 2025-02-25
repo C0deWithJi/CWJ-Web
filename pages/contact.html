@@ -62,11 +62,11 @@
     
     async function loadContacts() {
       const { data, error } = await supabase
-        .from('Contacts')
+        .from('contacts')
         .select('*')
       
       if (error) console.error('Error:', error)
-      else console.log('Contacts:', data)
+      else console.log('contacts:', data)
     }
 
     async function handleContactFormSubmit(event) {
