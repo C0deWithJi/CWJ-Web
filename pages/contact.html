@@ -59,15 +59,6 @@
   <<script type="module">
     import { addContact, createAuditRequest } from '../backend/queries.js'
     import { supabase } from '../backend/supabase-client.js'
-    
-    async function loadContacts() {
-      const { data, error } = await supabase
-        .from('contacts')
-        .select('*')
-      
-      if (error) console.error('Error:', error)
-      else console.log('contacts:', data)
-    }
 
     async function handleContactFormSubmit(event) {
       event.preventDefault()
