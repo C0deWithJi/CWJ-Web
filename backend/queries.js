@@ -12,7 +12,7 @@ export async function addContact(contactData) {
       .from('contacts')
       .select('id')
       .or(`email.eq.${contactData.email},phone.eq.${contactData.phone}`)
-      .single()
+      .limit(1)
       
     if (contactError && contactError.code !== 'PGRST116') {
       console.error(contactError)
@@ -26,9 +26,9 @@ export async function addContact(contactData) {
       // Contact does not exist, insert new contact
       const { data: newContactData, error: newContactError } = await supabase
         .from('contacts')
-        .insert([{ email: contactData.email, phone: contactData.phone }])
+        .insert([{ email: contactData.email, phone: contactData.phone, name: contactData.name, company: contactData.company, brief: contactData.brief }])
         .select('id')
-        .single()
+        .limit(1)
         
       if (newContactError) {
         console.error(newContactError)
@@ -46,7 +46,7 @@ export async function createAuditRequest(requestData) {
     .from('contacts')
     .select('id')
     .eq('email', requestData.email)
-    .single()
+    .limit(1)
     
   if (contactError && contactError.code !== 'PGRST116') {
     console.error(contactError)
@@ -88,10 +88,10 @@ export async function handleContactFormSubmit(event) {
   event.preventDefault()
   const email = document.getElementById('email').value
   const phone = document.getElementById('phone').value
-  const contactData = { email, phone }
   const brief = document.getElementById('brief').value
   const company = document.getElementById('company').value  
   const name = document.getElementById('name').value
+  const contactData = { email, phone, name, brief, company }
   
   const contactId = await addContact(contactData)
   if (contactId) {
