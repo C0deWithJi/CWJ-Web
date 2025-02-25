@@ -1,7 +1,7 @@
 import { addContact, createAuditRequest } from '../backend/queries.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contact-form');
+  const form = document.getElementById('contactForm');
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
