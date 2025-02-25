@@ -53,6 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', submitAuditForm);
 });
 
+// Attach event listeners to checkboxes and pages input
+const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', calculateEstimate);
+});
+
 async function submitAuditForm(event) {
   event.preventDefault(); // Prevent form submission
 
