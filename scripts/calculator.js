@@ -9,6 +9,8 @@ const PRICING = {
 
 // Modified calculateEstimate()
 async function calculateEstimate() {
+  Event.preventDefault(); // Prevent form submission
+
   const form = document.getElementById('auditForm');
   const resultDiv = document.getElementById('calculateEstimate');
   
