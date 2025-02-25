@@ -78,3 +78,24 @@ export async function createAuditRequest(requestData) {
   }
   return auditData
 }
+// Handle contact form submission
+export async function handleContactFormSubmit(event) {
+  event.preventDefault()
+  const email = document.getElementById('email').value
+  const phone = document.getElementById('phone').value
+  const contactData = { email, phone }
+  const brief = document.getElementById('brief').value
+  const company = document.getElementById('company').value  
+  const name = document.getElementById('name').value
+  
+  const contactId = await addContact(contactData)
+  if (contactId) {
+    console.log('Contact added with ID:', contactId)
+  } else {
+    console.error('Failed to add contact')
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('contactForm').addEventListener('submit', handleContactFormSubmit)
+})
