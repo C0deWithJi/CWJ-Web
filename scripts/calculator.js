@@ -50,40 +50,21 @@ async function handleFormSubmit(event) {
   }
 
   try {
-    // Check if contact exists
-    const { data: existingContact, error: lookupError } = await supabase
+    // Store the email in the database
+    const { data, error } = await supabase
       .from('contacts')
-      .select('id')
-      .eq('email', email)
-      .single(); // Assumes emails are unique
+      .insert({ email });
 
-    if (lookupError && lookupError.code !== 'PGRST116') {
-      throw lookupError;
+    if (error) {
+      throw error;
     }
 
-    let contactId;
-    if (existingContact) {
-      contactId = existingContact.id;
-    } else {
-      // Create new contact if not found
-      const { data: newContact, error: createError } = await supabase
-        .from('contacts')
-        .insert({ email })
-        .select('id')
-        .single();
-
-      if (createError) {
-        throw createError;
-      }
-      contactId = newContact.id;
-    }
-
-    // Calculate and display the estimate
-    calculateEstimate();
+    alert('Email stored successfully!');
+    form.reset(); // Reset the form after submission
 
   } catch (error) {
-    console.error('Contact error:', error);
-    alert('Error processing your contact information');
+    console.error('Error storing email:', error);
+    alert('Error storing your email. Please try again.');
   }
 }
 
