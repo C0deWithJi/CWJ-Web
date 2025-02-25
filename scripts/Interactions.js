@@ -40,3 +40,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Add any additional interactions here
+  console.log('Interactions script loaded');
+});
