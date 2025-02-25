@@ -10,7 +10,7 @@ const PRICING = {
 // Modified calculateEstimate()
 async function calculateEstimate() {
   const form = document.getElementById('auditForm');
-  const resultDiv = document.getElementById('estimateResult');
+  const resultDiv = document.getElementById('calculateEstimate');
   
   // Get form values
   const services = {
@@ -55,7 +55,7 @@ async function submitAuditForm(event) {
   event.preventDefault(); // Prevent form submission
 
   const form = document.getElementById('auditForm');
-  const resultDiv = document.getElementById('estimateResult');
+  const resultDiv = document.getElementById('calculateEstimate');
 
   // Get contact ID first
   const contact_id = await getOrCreateContact();
