@@ -44,7 +44,6 @@ export function calculateEstimate() {
 export async function handleAuditRequestFormSubmit(event) {
   event.preventDefault();
   const email = document.getElementById('email').value;
-  const brief = document.getElementById('brief').value;
   const pages = document.getElementById('pages').value;
   const services = {
     web: document.getElementById('web').checked,
@@ -54,7 +53,7 @@ export async function handleAuditRequestFormSubmit(event) {
   };
   const price = calculateEstimate(); // Calculate the price
 
-  const auditData = { email, brief, price, pages, services };
+  const auditData = { email, price, pages, services };
 
   const auditRequest = await addAuditRequest(auditData);
   if (auditRequest) {
