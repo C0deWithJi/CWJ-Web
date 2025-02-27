@@ -57,7 +57,7 @@ export async function handleAuditRequestFormSubmit(event) {
   };
   const price = calculateEstimate(); // Calculate the price
 
-  const auditData = { email, phone, name, company, brief, price };
+  const auditData = { email, phone, name, company, brief, price, pages, services };
 
   const auditRequest = await addAuditRequest(auditData);
   if (auditRequest) {
