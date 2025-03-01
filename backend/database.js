@@ -5,6 +5,10 @@ const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  throw new Error('Missing Supabase URL or Key');
+}
+
 // Function to add a contact
 export async function addContact(contactData) {
   const { data: existingContact, error: contactError } = await supabase
