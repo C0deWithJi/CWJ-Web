@@ -1,4 +1,4 @@
-import { addContact, addAuditRequest } from './database.js';
+import { addContact } from './database.js';
 
 // Pricing Configuration (Update values as needed)
 const PRICING = {
@@ -38,29 +38,6 @@ export function calculateEstimate() {
 
   // Return the total for use in form submission
   return total;
-}
-
-// Handle audit request form submission
-export async function handleAuditRequestFormSubmit(event) {
-  event.preventDefault();
-  const email = document.getElementById('email').value;
-  const pages = document.getElementById('pages').value;
-  const services = {
-    web: document.getElementById('web').checked,
-    ios: document.getElementById('ios').checked,
-    android: document.getElementById('android').checked,
-    seo: document.getElementById('seo').checked
-  };
-  const price = calculateEstimate(); // Calculate the price
-
-  const auditData = { email, price, pages, services };
-
-  const auditRequest = await addAuditRequest(auditData);
-  if (auditRequest) {
-    console.log('Audit request added:', auditRequest);
-  } else {
-    console.error('Failed to add audit request');
-  }
 }
 
 // Handle contact form submission
