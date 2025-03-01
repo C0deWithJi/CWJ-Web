@@ -10,6 +10,8 @@
     import { calculateEstimate } from '../backend/queries.js';
 
     document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('auditForm');
+
       // Attach event listeners to checkboxes and pages input
       const checkboxes = form.querySelectorAll('input[type="checkbox"]');
       checkboxes.forEach(checkbox => {
