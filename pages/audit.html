@@ -7,12 +7,9 @@
   <link rel="stylesheet" href="../styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script type="module">
-    import { handleAuditRequestFormSubmit, calculateEstimate } from '../backend/queries.js';
+    import { calculateEstimate } from '../backend/queries.js';
 
     document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('auditForm');
-      form.addEventListener('submit', handleAuditRequestFormSubmit);
-
       // Attach event listeners to checkboxes and pages input
       const checkboxes = form.querySelectorAll('input[type="checkbox"]');
       checkboxes.forEach(checkbox => {
