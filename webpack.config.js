@@ -2,7 +2,7 @@ const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: './scripts/contact.js',
+  entry: './backend/queries.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
