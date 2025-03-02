@@ -17,6 +17,7 @@ export async function addContact(contactData) {
     .from('contacts')
     .select('id')
     .or(`email.eq.${contactData.email},phone.eq.${contactData.phone}`)
+    .single();
     
   if (contactError && contactError.code !== 'PGRST116') {
     console.error("Error checking existing contact", contactError);
