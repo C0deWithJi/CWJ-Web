@@ -15,8 +15,9 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 export async function addContact(contactData) {
   const { data: existingContact, error: contactError } = await supabase
     .from('contacts')
-    .select('name')
-    .single()
+    .select('id')
+    .or(`email.eq.${contactData.email},phone.eq.${contactData.phone}`)
+    .limit(1);
     
   if (contactError && contactError.code !== 'PGRST116') {
     console.error("Error checking existing contact", contactError);
