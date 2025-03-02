@@ -43,6 +43,7 @@ export function calculateEstimate() {
 // Handle contact form submission
 export async function handleContactFormSubmit(event) {
   event.preventDefault();
+  const form = event.target;
   const email = document.getElementById('email').value;
   const phone = document.getElementById('phone').value;
   const name = document.getElementById('name').value;
@@ -57,6 +58,7 @@ export async function handleContactFormSubmit(event) {
     formMessage.classList.remove('hidden');
     formMessage.classList.add('bg-green-100', 'text-green-700');
     formMessage.textContent = 'Thank you! Your information has been submitted. We will be in touch soon!';
+    form.reset();
   } else {
     formMessage.classList.remove('hidden');
     formMessage.classList.add('bg-red-100', 'text-red-700');
