@@ -51,9 +51,15 @@ export async function handleContactFormSubmit(event) {
   const contactData = { email, phone, name, company, brief };
 
   const contactId = await addContact(contactData);
+  const formMessage = document.getElementById('formMessage');
+
   if (contactId) {
-    console.log('Contact added with ID:', contactId);
+    formMessage.classList.remove('hidden');
+    formMessage.classList.add('bg-green-100', 'text-green-700');
+    formMessage.textContent = 'Thank you! Your information has been submitted. We will be in touch soon!';
   } else {
-    console.error('Failed to add contact');
+    formMessage.classList.remove('hidden');
+    formMessage.classList.add('bg-red-100', 'text-red-700');
+    formMessage.textContent = 'Sorry for the inconveience, there was an error submitting your information. Please try again.';
   }
 }
