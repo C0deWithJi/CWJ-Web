@@ -20,7 +20,7 @@ export async function addContact(contactData) {
     .single();
     
   if (contactError && contactError.code !== 'PGRST116') {
-    console.error(contactError);
+    console.error("Error checking existing contact", contactError);
     return null;
   }
 
@@ -34,7 +34,7 @@ export async function addContact(contactData) {
       .single();
       
     if (newContactError) {
-      console.error(newContactError);
+      console.error("Error adding new contact", newContactError);
       return null;
     }
     return newContactData.id;
