@@ -41,18 +41,4 @@ export async function addContact(contactData) {
   }
 }
 
-// Function to add an audit request
-export async function addAuditRequest(auditData) {
-  const { data, error } = await supabase
-    .from('audit_requests')
-    .insert([auditData])
-    .select();
-    
-  if (error) {
-    console.error(error);
-    return null;
-  }
-  return data;
-}
-
 export default supabase;
