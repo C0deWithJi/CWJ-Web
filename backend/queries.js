@@ -27,7 +27,10 @@ export function calculateEstimate() {
     total += PRICING.WEB_APP.base + (pages * PRICING.WEB_APP.perPage);
   }
   if (services.ios || services.android) {
-    total += PRICING.MOBILE_APP.base * PRICING.MOBILE_APP.platformMultiplier;
+    if (services.ios && services.android) {
+      total += PRICING.MOBILE_APP.base * PRICING.MOBILE_APP.platformMultiplier;
+    }
+    total += PRICING.MOBILE_APP.base;
   }
   if (services.seo) {
     total += PRICING.SEO;
