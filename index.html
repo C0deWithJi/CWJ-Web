@@ -43,7 +43,7 @@
 <!-- Portfolio Section -->
 <section id="portfolio" class="py-16 bg-white px-4">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Perosnal Projects</h2>
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Personal Projects</h2>
     
     <!-- Project Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -175,7 +175,71 @@
         </div>
       </div>
 
+      <div class="portfolio-card group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all 
+      duration-300 ease-out overflow-hidden">
+        <!-- Front Card -->
+        <div class="card-front p-6 cursor-pointer">
+          <img 
+            src="" 
+            alt="Scene It Mobile Application Preview" 
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          >
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Scene It Mobile Application</h3>
+          <p class="text-gray-600 line-clamp-2">Wig making company with nationwide distribution</p>
+          <button class="expand-button mt-4 text-blue-600 font-medium">
+            See Details ↓
+          </button>
+        </div>
+
+        <!-- Expanded Back Card (Hidden by Default) -->
+        <div class="card-back absolute top-0 left-0 w-full h-full bg-white rounded-xl p-6 overflow-y-auto invisible 
+        opacity-0 transition-all duration-300">
+          <!-- Close Button -->
+          <button 
+            class="close-button absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          >
+            ×
+          </button>
+          
+          <!-- Project Details -->
+          <div class="space-y-6">
+            <!-- Image Carousel -->
+            <div class="carousel flex snap-x snap-mandatory overflow-x-auto gap-4 pb-4">
+              <img src="" alt="Homepage" class="w-full h-64 object-cover snap-start">
+              <img src="" alt="Checkout" class="w-full h-64 object-cover snap-start">
+            </div>
+            
+            <!-- Tech Stack -->
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">SQL</span>
+              <span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-sm">iOS</span>
+            </div>
+
+            <!-- Description -->
+            <p class="text-gray-600">
+              Helped this client build a mobile application that allows users to purchase hair extensions and wigs.
+              built on scalability and security, this app is a great example of how to build a successful e-commerce 
+              platform.
+            </p>
+
+            <!-- Links -->
+            <div class="flex gap-4">
+             
+              <a 
+                href="https://github.com/C0deWithJi/Xtreme-Xtends-Mobile" 
+                target="_blank" 
+                rel="noopener"
+                class="border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Add more project cards here -->
+       
     </div>
   </div>
 </section>
