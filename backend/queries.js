@@ -30,7 +30,7 @@ export function calculateEstimate() {
     if (services.ios && services.android) {
       total += PRICING.MOBILE_APP.base * PRICING.MOBILE_APP.platformMultiplier;
     }
-    total += PRICING.MOBILE_APP.base;
+    total += PRICING.MOBILE_APP.base + (pages * PRICING.WEB_APP.perPage);
   }
   if (services.seo) {
     total += PRICING.SEO;
