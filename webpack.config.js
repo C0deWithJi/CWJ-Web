@@ -24,5 +24,14 @@ module.exports = {
   plugins: [
     new Dotenv()
   ],
-  mode: 'development'
+  mode: 'development',
+  devServer: {
+    host: 'localhost',
+    port: 5173,
+    hot: true,
+    open: true,
+    client: {
+      webSocketURL: 'ws://localhost:5173/ws',
+    },
+  },
 };
