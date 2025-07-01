@@ -16,7 +16,10 @@
       const formData = {
         name: form.name.value,
         email: form.email.value,
-        message: form.message.value
+        brief: form.brief.value,
+        company: form.company.value,
+        phone: form.phone.value,
+        date: new Date().toISOString()
       };
   
       try {
