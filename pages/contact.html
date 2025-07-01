@@ -29,6 +29,13 @@
   <section id="contact" class="py-16 bg-white">
     <div class="max-w-xl mx-auto px-4">
       <label class="bg-center">Please submit your contact information</label>
+      <div id="successMessage" class="success-message">
+        <p>✅ Message sent successfully! We'll get back to you soon.</p>
+      </div>
+      
+      <div id="errorMessage" class="error-message">
+        <p>❌ There was an error sending your message. Please try again.</p>
+      </div>
       <form id="contactForm" class="space-y-6">
         <div id="formMessage" class="hidden p-4 rounded-lg"></div>
         <div>
@@ -51,44 +58,69 @@
           <label class="block text-gray-700 mb-2">Brief Project Description</label>
           <input type="text" id="brief" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          Submit
+        <button id="submitBtn" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <span id="buttonText">Submit</span>
+          <span id="loadingSpinner" class="loading" style="display: none;"></span>
         </button>
       </form>
     </div>
   </section>
   <script>
-    const form = document.getElementById('contactForm');
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyabJvVvRjKRZxQedYnr1Bl5LsnXCCW44QoQZ1EJlfet54fkSnN6kf8cI-lvqtMVFLn/exec'; 
-  
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const buttonText = document.getElementById('buttonText');
+      const loadingSpinner = document.getElementById('loadingSpinner');
+      const successMessage = document.getElementById('successMessage');
+      const errorMessage = document.getElementById('errorMessage');
       
-      const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        brief: form.brief.value,
-        company: form.company.value,
-        phone: form.phone.value,
-      };
-  
-      try {
-        const response = await fetch(SCRIPT_URL, {
-          method: 'POST',
-          body: JSON.stringify(formData),
-          headers: { 'Content-Type': 'application/json' }
-        });
+      // Updated URL with CORS proxy
+      const SCRIPT_URL = 'https://corsproxy.io/?https://script.google.com/macros/s/AKfycbyabJvVvRjKRZxQedYnr1Bl5LsnXCCW44QoQZ1EJlfet54fkSnN6kf8cI-lvqtMVFLn/exec';
+      
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
         
-        const result = await response.json();
-        if (result.success) {
-          alert('Message sent!');
-          form.reset();
-        } else {
-          throw new Error(result.error || 'Failed to send');
+        // Show loading state
+        submitBtn.disabled = true;
+        buttonText.textContent = 'Sending...';
+        loadingSpinner.style.display = 'inline-block';
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+        
+        const formData = {
+          name: form.name.value,
+          email: form.email.value,
+          brief: form.brief.value,
+          company: form.company.value,
+          phone: form.phone.value,
+        };
+        
+        try {
+          // Using CORS proxy to bypass CORS restrictions
+          const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: { 'Content-Type': 'application/json' }
+          });
+          
+          const result = await response.json();
+          if (result.success) {
+            // Show success message
+            successMessage.style.display = 'block';
+            form.reset();
+          } else {
+            throw new Error(result.error || 'Failed to send');
+          }
+        } catch (error) {
+          console.error('Submission error:', error);
+          errorMessage.style.display = 'block';
+        } finally {
+          // Reset button state
+          submitBtn.disabled = false;
+          buttonText.textContent = 'Submit';
+          loadingSpinner.style.display = 'none';
         }
-      } catch (error) {
-        alert('Error: ' + error.message);
-      }
+      });
     });
   </script>
 </body>
