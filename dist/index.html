@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jihad Vercher | Web & App Developer</title>
+  <!-- Include Tailwind CSS via CDN (or use npm for production) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-['Inter']">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo/Brand -->
+        <h1 class="text-2xl font-bold text-blue-600">CodewithJi</h1>
+        <img src="/assets/CWJ_Logo-B0jDFcUV.jpg" alt="CodewithJi Logo" class="w-12 h-12 rounded-full shadow-lg">
+        <!-- Menu -->
+        <div class="flex space-x-4">
+          <a href="#portfolio" class="text-gray-600 hover:text-blue-600">Portfolio</a>
+          <a href="#services" class="text-gray-600 hover:text-blue-600">Services</a>
+          <a href="./pages/about.html" class="text-gray-700 hover:text-blue-600">About</a>
+          <a href="./pages/contact.html" class="text-gray-700 hover:text-blue-600">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-5xl font-bold text-gray-800 mb-6">
+        I Build Apps & Websites That <span class="text-blue-600">WIN</span>
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Freelance developer helping businesses build tech, scale revenue and change the world.
+      </p>
+      <button class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
+        <a href="./pages/audit.html">Get a Free Estimate</a>
+      </button>
+    </div>
+  </section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-16 bg-white px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Portfolio</h2>
+    
+    <!-- Project Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Project Card 1 -->
+      <div class="portfolio-card group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out overflow-hidden">
+        <!-- Front Card -->
+        <div class="card-front p-6 cursor-pointer">
+          <img 
+            src="/assets/bus_wrap_animation-BoUaaVcT.MOV" 
+            alt="World of Hands Transportation Webpage Preview" 
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          >
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">World of Hands Alternative Transportation Webpage</h3>
+          <p class="text-gray-600 line-clamp-2">Website developed for kern county transportation service company</p>
+          <button class="expand-button mt-4 text-blue-600 font-medium">
+            See Details ↓
+          </button>
+        </div>
+
+        <!-- Expanded Back Card (Hidden by Default) -->
+        <div class="card-back absolute top-0 left-0 w-full h-full bg-white rounded-xl p-6 overflow-y-auto invisible opacity-0 transition-all duration-300 overflow-auto">
+          <!-- Close Button -->
+          <button 
+            class="close-button absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          >
+            ×
+          </button>
+          
+          <!-- Project Details -->
+          <div class="space-y-6">
+            <!-- Image Carousel -->
+            <div class="carousel flex snap-x snap-mandatory overflow-x- auto gap-4 pb-4">
+              <img src="/assets/WHLogo-CYtvk1of.png" alt="" class="w-full h-64 object-cover snap-start">
+              <img src="" alt="Booking" class="w-full h-64 object-cover snap-start">
+            </div>
+            
+            <!-- Tech Stack -->
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">CSS</span>
+              <span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-sm">HTML</span>
+            </div>
+
+            <!-- Description -->
+            <p class="text-gray-600">
+              This project was a great opportunity to work with a local business and help them establish an online 
+              presence. The website is built with HTML, CSS, and JavaScript, and is fully responsive. It features a
+              custom booking system that allows users to book consultations as well as invest in various programs
+              offered by World of Hands.
+            </p>
+
+            <!-- Links -->
+            <div class="flex gap-4">
+             
+              <a 
+                href=""
+                alt="World of Hands Transportation GitHub Repository" 
+                target="_blank" 
+                rel="noopener"
+                class="border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all 
+      duration-300 ease-out overflow-hidden">
+        <!-- Front Card -->
+        <div class="card-front p-6 cursor-pointer">
+          <img 
+            src="/assets/xtreme_xtends%20logo-CQefnk_b.jpg" 
+            alt="Xtreme Xtend Mobile Application Preview" 
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          >
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Xtreme Xtend Mobile Application</h3>
+          <p class="text-gray-600 line-clamp-2">Wig making company with nationwide distribution</p>
+          <button class="expand-button mt-4 text-blue-600 font-medium">
+            See Details ↓
+          </button>
+        </div>
+
+        <!-- Expanded Back Card (Hidden by Default) -->
+        <div class="card-back absolute top-0 left-0 w-full h-full bg-white rounded-xl p-6 overflow-y-auto invisible 
+        opacity-0 transition-all duration-300">
+          <!-- Close Button -->
+          <button 
+            class="close-button absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          >
+            ×
+          </button>
+          
+          <!-- Project Details -->
+          <div class="space-y-6">
+            <!-- Image Carousel -->
+            <div class="carousel flex snap-x snap-mandatory overflow-x-auto gap-4 pb-4">
+              <img src="" alt="Homepage" class="w-full h-64 object-cover snap-start">
+              <img src="" alt="Checkout" class="w-full h-64 object-cover snap-start">
+            </div>
+            
+            <!-- Tech Stack -->
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">SQL</span>
+              <span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-sm">iOS</span>
+            </div>
+
+            <!-- Description -->
+            <p class="text-gray-600">
+              Helped this client build a mobile application that allows users to purchase hair extensions and wigs.
+              built on scalability and security, this app is a great example of how to build a successful e-commerce 
+              platform.
+            </p>
+
+            <!-- Links -->
+            <div class="flex gap-4">
+             
+              <a 
+                href="https://github.com/C0deWithJi/Xtreme-Xtends-Mobile" 
+                target="_blank" 
+                rel="noopener"
+                class="border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all 
+      duration-300 ease-out overflow-hidden">
+        <!-- Front Card -->
+        <div class="card-front p-6 cursor-pointer">
+          <img 
+            src="/assets/hiking_image-CTpIk3dv.jpg" 
+            alt="Scene It Mobile Application Preview" 
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          >
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Scene It Mobile Application</h3>
+          <p class="text-gray-600 line-clamp-2">Wig making company with nationwide distribution</p>
+          <button class="expand-button mt-4 text-blue-600 font-medium">
+            See Details ↓
+          </button>
+        </div>
+
+        <!-- Expanded Back Card (Hidden by Default) -->
+        <div class="card-back absolute top-0 left-0 w-full h-full bg-white rounded-xl p-6 overflow-y-auto invisible 
+        opacity-0 transition-all duration-300">
+          <!-- Close Button -->
+          <button 
+            class="close-button absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          >
+            ×
+          </button>
+          
+          <!-- Project Details -->
+          <div class="space-y-6">
+            <!-- Image Carousel -->
+            <div class="carousel flex snap-x snap-mandatory overflow-x-auto gap-4 pb-4">
+              <img src="" alt="Homepage" class="w-full h-64 object-cover snap-start">
+              <img src="" alt="Checkout" class="w-full h-64 object-cover snap-start">
+            </div>
+            
+            <!-- Tech Stack -->
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">SQL</span>
+              <span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-sm">iOS</span>
+            </div>
+
+            <!-- Description -->
+            <p class="text-gray-600">
+              Helped this client build a mobile application that allows users to purchase hair extensions and wigs.
+              built on scalability and security, this app is a great example of how to build a successful e-commerce 
+              platform.
+            </p>
+
+            <!-- Links -->
+            <div class="flex gap-4">
+             
+              <a 
+                href="" 
+                target="_blank" 
+                rel="noopener"
+                class="border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more project cards here -->
+       
+    </div>
+  </div>
+</section>
+
+  <!-- Services Section -->
+
+  <section id="services" class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Services</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-laptop-code text-blue-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Web Application Development</h3>
+          <p class="text-gray-600">Scalable web apps built with modern stacks.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-mobile-alt text-blue-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Mobile Application Development</h3>
+          <p class="text-gray-600">Scalable mobile apps built with modern stacks.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-server text-blue-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">SEO (Search Engine Optimization)</h3>
+          <p class="text-gray-600">Assisting your application or website in being seen first!</p>
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md">
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+          <i class="fas fa-tasks text-blue-600"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Application Management</h3>
+        <p class="text-gray-600">Monthly subscription to maintaining presentability and usability among your websites and applications</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <p className="text-center text-gray-600 text-sm mt-8">
+    <a href="./pages/about.html" className="hover:underline">About</a> | <a href="./pages/contact.html" className="hover:underline">Contact</a>
+  <p className="text-center text-gray-600 text-sm mt-8">
+    &copy; 2025 CodewithJi. All rights reserved.
+
+  
+</body>
+  <script src="/scripts/Interactions.js"></script>
+</html>
